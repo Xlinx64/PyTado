@@ -349,17 +349,18 @@ class Tado:
 
         if set_temp is not None:
             post_data["setting"]["temperature"] = {"celsius": set_temp}
-            if fan_speed is not None:
-                post_data["setting"]["fanSpeed"] = fan_speed
-            elif fan_level is not None:
-                post_data["setting"]["fanLevel"] = fan_level
-            if swing is not None:
-                post_data["setting"]["swing"] = swing
-            else:
-                if vertical_swing is not None:
-                    post_data["setting"]["verticalSwing"] = vertical_swing
-                if horizontal_swing is not None:
-                    post_data["setting"]["horizontalSwing"] = horizontal_swing
+
+        if fan_speed is not None:
+            post_data["setting"]["fanSpeed"] = fan_speed
+        elif fan_level is not None:
+            post_data["setting"]["fanLevel"] = fan_level
+        if swing is not None:
+            post_data["setting"]["swing"] = swing
+        else:
+            if vertical_swing is not None:
+                post_data["setting"]["verticalSwing"] = vertical_swing
+            if horizontal_swing is not None:
+                post_data["setting"]["horizontalSwing"] = horizontal_swing
 
         if mode is not None:
             post_data["setting"]["mode"] = mode
